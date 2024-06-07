@@ -167,7 +167,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     month = localtime().tm_mon
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
-  
+    now = datetime.now()
     week = week_list[today.isoweekday() % 7]
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
@@ -178,7 +178,15 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     love_days = str(today.__sub__(love_date)).split(" ")[0]
     # 获取所有生日数据
     birthdays = {}
-   
+
+    this_month = now.month
+    this_day = now.day
+    if this_day >= 17:
+        # 计算下个月的1号
+        next_17th = now.replace(day=1, month=this_month+1)
+    else:
+        # 否则，寻找本月的17日
+        next_17th = now.replace(day=17)
 
 
     for k, v in config.items():
@@ -254,7 +262,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "value": chp,
                 "color": get_color()
             },
-           
+            "next_17th": {
+                "value":next_17th,
+                "color": get_color()
+            }
 
         }
     }
