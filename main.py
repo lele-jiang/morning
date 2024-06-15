@@ -183,13 +183,15 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     this_day = now.day
     if this_day >= 14:
         if 20 >= this_day:
-            next_17th =  生理期期间！注意饮食！注意保暖！
+            next_17th =  "生理期期间！注意饮食！注意保暖！"
         else:
             # 计算下个月的1号
-            next_17th = "距离生理期还有{30-this_day+14}天！要注意饮食哦！"
+            a=30-this_day+14
+            next_17th = "距离生理期还有"+a+"天！要注意饮食哦！"
     else:
         # 否则，寻找本月的14日
-        next_17th = "距离生理期还有{30-this_day+14}天！要注意饮食哦！"
+        a=14-this_day
+        next_17th = "距离生理期还有"+a+"天！要注意饮食哦！"
 
 
     for k, v in config.items():
