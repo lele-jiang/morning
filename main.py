@@ -181,7 +181,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
 
     this_month = now.month
     this_day = now.day
-    if this_day >= 17:
+    if this_day >= 14:
         # 计算下个月的1号
         next_17th = 30-this_day+17
     else:
