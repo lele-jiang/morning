@@ -187,11 +187,11 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         else:
             # 计算下个月的1号
             a=30-this_day+14
-            next_17th = "距离生理期还有"+a+"天！要注意饮食哦！"
+            next_17th = "距离生理期还有"+ str(a) +"天！要注意饮食哦！"
     else:
         # 否则，寻找本月的14日
         a=14-this_day
-        next_17th = "距离生理期还有"+a+"天！要注意饮食哦！"
+        next_17th = "距离生理期还有"+ str(a) +"天！要注意饮食哦！"
 
 
     for k, v in config.items():
